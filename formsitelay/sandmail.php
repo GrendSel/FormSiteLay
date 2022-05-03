@@ -11,26 +11,27 @@
     $name = trim($name);
 
 
-    $mail = htmlspecialchars($_POST['email']);
-    $mail = urldecode($_POST['email']);
-    $mail= trim($mail);
+    $mail_tel = htmlspecialchars($_POST['emtel']);
+    $mail_tel = urldecode($_POST['emtel']);
+    $mail_tel = trim($mail_tel);
 
-    $phnumb = htmlspecialchars($_POST['telephone']);
+    /*$phnumb = htmlspecialchars($_POST['telephone']);
     $phnumb = urldecode($_POST['telephone']);
-    $phnumb = trim($phnumb);
+    $phnumb = trim($phnumb);*/
 
     $message = htmlspecialchars($_POST['message']);
     $message = urldecode($_POST['message']);
     $message = trim($message);
 
     $headers =
-    "Номер телефона: $phnumb" . "\r\n" . 
-    "Ответить: $mail";
+    "Почта/Номер телефона: $mail_tel" . "\r\n" . 
+    "Ответить: $mail_tel";
 
     if(mail($to, $name, $message, $headers)){
-        echo "Письмо отправлено!";
+        ?> <script>alert('Письмо успешно отправлено')</script> <?php
+        header("Refresh: 0");
     }else{
-        echo "Письмо не удалось отправить!";
+        ?> <script>alert('Письмо не отправлено')</script> <?php
+        header("Refresh: 0");
     }
-
 ?>
