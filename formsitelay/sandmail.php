@@ -6,23 +6,28 @@
 
     $to ="slava_kondyurin@mail.ru";
 
-    $name = $_POST['name'];
     $name = htmlspecialchars($_POST['name']);
     $name = urldecode($_POST['name']);
+    $name = trim($name);
 
-    $number_mail = htmlspecialchars($_POST['enum']);
-    $number_mail = urldecode($_POST['enum']);
-    $number_mail = trim($_POST['enum']); 
+
+    $mail = htmlspecialchars($_POST['email']);
+    $mail = urldecode($_POST['email']);
+    $mail= trim($mail);
+
+    $phnumb = htmlspecialchars($_POST['telephone']);
+    $phnumb = urldecode($_POST['telephone']);
+    $phnumb = trim($phnumb);
 
     $message = htmlspecialchars($_POST['message']);
     $message = urldecode($_POST['message']);
-    $message = trim($_POST['message']);
+    $message = trim($message);
 
-    $headers = "FROM: $name" . "\r\n" . 
-    "Reply to : $name " . "\r\n" . 
-    "X-Mailer: PHP/" . phpversion();
+    $headers =
+    "Номер телефона: $phnumb" . "\r\n" . 
+    "Ответить: $mail";
 
-    if(mail($to, $name, $number_mail, $message)){
+    if(mail($to, $name, $message, $headers)){
         echo "Письмо отправлено!";
     }else{
         echo "Письмо не удалось отправить!";

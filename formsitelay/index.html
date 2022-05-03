@@ -9,12 +9,24 @@
 </head>
 <body>
     <header>Тестовая форма sitelay</header>
+
     <form action="sandmail.php" method="POST">
-        <input type="text" name="name" placeholder="В формате: Иван" maxlength="20" required>
-        <input type="text" name="enum" placeholder="Укажите почту или номер" maxlength="50" required>
-        <textarea type="message" name="message" placeholder="Сообщение" maxlength="150"></textarea>
+        <label for="name">Введите ваше имя:</label>
+        <input type="text" id="name" name="name" placeholder="В формате: Иван" maxlength="20" required>
+
+        <label for="email">Введите ваш email:</label>
+        <input type="email" id="email" name="email" placeholder="В формате: email@mail.ru" maxlength="50" required>
+
+        <label for="tel">Введите ваш номер:</label>
+        <input type="tel" id="tel" name="telephone" placeholder="В формате: +7 999 999 0909"  maxlength="12" 
+        pattern="[+7][0-9]{11}" required>
+
+
+        <label for="name">Ваши пожелания:</label>
+        <textarea type="message" id="message" name="message" placeholder="Сообщение" maxlength="150"></textarea>
+        
         <img src="capcha.jpg" alt="">
-        <input type="number" name="capcha" placeholder="Введите число с картинки">
+        <input type="number" name="capcha" placeholder="Введите число с картинки" maxlength="3">
         <input type="submit" placeholder="Отправить">
     </form>
     
