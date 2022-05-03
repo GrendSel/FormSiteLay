@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TestForm</title>
+</head>
+<body>
+    <header>Тестовая форма sitelay</header>
+    <form action="sandmail.php" method="POST">
+        <input type="text" name="name" placeholder="В формате: Иван" maxlength="20" required>
+        <input type="text" name="enum" placeholder="Укажите почту или номер" maxlength="50" required>
+        <textarea type="message" name="message" placeholder="Сообщение" maxlength="150"></textarea>
+        <img src="capcha.jpg" alt="">
+        <input type="number" name="capcha" placeholder="Введите число с картинки">
+        <input type="submit" placeholder="Отправить">
+    </form>
+    
+</body>
+</html>
